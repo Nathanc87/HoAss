@@ -3,13 +3,6 @@ blueprint:
   description: Turn a light on based on detected motion or via normal smart switch
   domain: automation
   input:
-    motion_sensor:
-      name: Motion Sensor
-      description: This sensor will be synchronized with the light.
-      selector:
-        entity:
-          domain: binary_sensor
-          device_class: motion
     light_switch:
       name: Light Switch
       description: This switch will switch the light
@@ -25,8 +18,6 @@ blueprint:
             domain: light
 
 trigger:
-  platform: state
-  entity_id: !input motion_sensor
   platform: state
   entity_id: !input light_switch
 action:
